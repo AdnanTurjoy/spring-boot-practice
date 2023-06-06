@@ -17,4 +17,13 @@ public class TopicService {
 //        topics.add(new Topic("3", "Java", "Its the worst"));
         return topics;
     }
+
+    public Topic getSingleTopic(String idx){
+        for (Topic item : topics) {
+            if(item.getId().equals(idx)) {
+                return item;
+            }
+        }
+        return null;
+    }
 }
