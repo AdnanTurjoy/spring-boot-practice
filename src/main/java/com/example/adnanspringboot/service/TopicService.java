@@ -4,16 +4,17 @@ import com.example.adnanspringboot.dto.Topic;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class TopicService {
-    private final List<Topic> topics = List.of(
+    public List<Topic> topics = new ArrayList<>(Arrays.asList(
             new Topic("1", "JavaScript", "Its the best"),
             new Topic("2", "python", "Its the best"),
             new Topic("3", "Java", "Its the worst"),
             new Topic("4", "Java", "Its the worst")
-    );
+    ));
 
     public List<Topic> getAllTopics(){
 
@@ -29,10 +30,14 @@ public class TopicService {
         return null;
     }
 
-    public List<Topic> createAtopic(Topic topic){
+    public String createAtopic(Topic topic){
               List<Topic> topics = new ArrayList<>();
               topics.add(topic);
-              return topics;
+              if(topics.isEmpty()){
+                  return "Failed";
+              }else {
+                  return "Created Successfully";
+              }
     }
 
     public Topic updateATopic(Topic topic, String idx){
@@ -45,5 +50,11 @@ public class TopicService {
             }
         }
         return topic1;
+    }
+
+    public List<Topic> deleteTopic(String idx){
+
+        topics.removeIf(obj -> obj.getId().equals(idx));
+        return topics;
     }
 }

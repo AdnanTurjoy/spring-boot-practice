@@ -38,7 +38,7 @@ public class TopicController {
     }
 
     @PostMapping("/topics")
-    public List<Topic> createTopic(@RequestBody Topic topic){
+    public String createTopic(@RequestBody Topic topic){
 
        return topicService.createAtopic(topic);
 
@@ -46,6 +46,10 @@ public class TopicController {
     @PutMapping("/topic/{id}")
     public Topic updateTopic(@PathVariable("id") String id, @RequestBody Topic topic){
         return topicService.updateATopic(topic,id);
+    }
+    @DeleteMapping("/topic/{id}")
+    public List<Topic> deleteTopic(@PathVariable("id") String id){
+        return topicService.deleteTopic(id);
     }
 
 
