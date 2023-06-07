@@ -1,8 +1,9 @@
 package com.example.adnanspringboot.controller;
 
 
-import com.example.adnanspringboot.dto.ProjectDTO;
+import com.example.adnanspringboot.dto.CommonDTO;
 
+import com.example.adnanspringboot.dto.ResponseDTO;
 import com.example.adnanspringboot.entity.Project;
 import com.example.adnanspringboot.service.ProjectService;
 import lombok.RequiredArgsConstructor;
@@ -18,11 +19,14 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @GetMapping("/project")
-    public ProjectDTO getProject(){
+    public CommonDTO getProject(){
 
         List<Project> projects= projectService.getAll();
-        return new ProjectDTO(projects, projects.size());
-
+//        return new ProjectDTO(projects, projects.size());
+        ResponseDTO res = new ResponseDTO();
+        res.setMessage("Successfull");
+        res.setResponseCode("200");
+        return new CommonDTO(projects,res);
     }
 
 
