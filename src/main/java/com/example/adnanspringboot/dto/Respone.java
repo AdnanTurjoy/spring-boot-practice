@@ -1,5 +1,6 @@
-package com.example.adnanspringboot.topic;
+package com.example.adnanspringboot.dto;
 
+import com.example.adnanspringboot.dto.Topic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

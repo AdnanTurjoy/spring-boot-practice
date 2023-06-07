@@ -1,11 +1,10 @@
-package com.example.adnanspringboot.topic;
+package com.example.adnanspringboot.controller;
 
+import com.example.adnanspringboot.dto.Respone;
+import com.example.adnanspringboot.dto.Topic;
+import com.example.adnanspringboot.service.TopicService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,5 +36,18 @@ public class TopicController {
         return topicService.getSingleTopic(id);
 
     }
+
+    @PostMapping("/topics")
+    public List<Topic> createTopic(@RequestBody Topic topic){
+
+       return topicService.createAtopic(topic);
+
+    }
+    @PutMapping("/topic/{id}")
+    public Topic updateTopic(@PathVariable("id") String id, @RequestBody Topic topic){
+        return topicService.updateATopic(topic,id);
+    }
+
+
 }
 
