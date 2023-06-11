@@ -26,5 +26,7 @@ public class Project {
     @Column
     private String technology;
 
+//    private List<String> skills;
+
 
 }

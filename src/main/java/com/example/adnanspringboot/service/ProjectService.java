@@ -3,12 +3,9 @@ package com.example.adnanspringboot.service;
 import com.example.adnanspringboot.entity.Project;
 import com.example.adnanspringboot.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -26,16 +23,18 @@ public class ProjectService {
         return projectRepository.findAll();
     }
 
-    public ResponseEntity<?> getById(Long idx){
-        Optional<Project> project = projectRepository.findById(idx);
+    public Project getById(Long idx){
+        Project project= projectRepository.findById(idx).get();
+        return project;
 
-        if (project.isPresent()){
-
-            return new ResponseEntity<>(project.get(), HttpStatus.OK);
-        }else {
-
-            return new ResponseEntity<>("Not Found!",HttpStatus.NOT_FOUND);
-        }
+//        System.out.println("adnan"+skill1);
+//        if (project.isPresent()){
+//
+//            return new ResponseEntity<>(project.get(), HttpStatus.OK);
+//        }else {
+//
+//            return new ResponseEntity<>("Not Found!",HttpStatus.NOT_FOUND);
+//        }
 
     }
 
