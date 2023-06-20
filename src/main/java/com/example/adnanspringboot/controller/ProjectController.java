@@ -71,6 +71,10 @@ public class ProjectController {
         return projectService.deleteById(id);
     }
 
+    @GetMapping("/project/sort")
+    public List<Project> getAllProjectbySorting(){
+        return projectService.sortByName();
+    }
 
 }
 

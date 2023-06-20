@@ -3,6 +3,7 @@ package com.example.adnanspringboot.service;
 import com.example.adnanspringboot.entity.Project;
 import com.example.adnanspringboot.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class ProjectService {
 
     public List<Project> getAll(){
         return projectRepository.getAllProject();
-//        return projectRepository.findAll();
+//        return projectRepository.findAll();     // using default jpa method
     }
 
     public Project getById(Long idx){
@@ -61,6 +62,10 @@ public class ProjectService {
             projectRepository.deleteById(idx);
         }
         return true;
+    }
+
+    public List<Project> sortByName(){
+        return projectRepository.getProjectBySort();
     }
 
 }
