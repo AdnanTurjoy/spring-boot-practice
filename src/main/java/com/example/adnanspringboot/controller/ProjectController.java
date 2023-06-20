@@ -42,7 +42,7 @@ public class ProjectController {
     }
 
     @GetMapping("/project/{id}")
-    public Project getSingleProject(@PathVariable("id") Long id) {
+    public ProjectDTO getSingleProject(@PathVariable("id") Long id) {
         Project project1 = projectService.getById(id);
         List<Skill> skills = skillRepository.findAll();
 //        System.out.println( skills.stream().filter().);

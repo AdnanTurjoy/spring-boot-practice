@@ -20,7 +20,8 @@ public class ProjectService {
     }
 
     public List<Project> getAll(){
-        return projectRepository.findAll();
+        return projectRepository.getAllProject();
+//        return projectRepository.findAll();
     }
 
     public Project getById(Long idx){
